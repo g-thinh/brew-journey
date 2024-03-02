@@ -1,0 +1,12 @@
+node_modules/**
+package.json
+yarn.lock
+ios/**
+android/**
+assets/**
+.vscode
+.expo-shared
+.prettierrc
+.eslintrc.js
+babel.config.js
+app.json
