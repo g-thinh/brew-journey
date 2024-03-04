@@ -1,16 +1,18 @@
 import { TamaguiProvider } from '@tamagui/core';
 import '@tamagui/core/reset.css';
-import { Stack, SplashScreen } from 'expo-router';
+import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
+
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
+import SplashScreen from '../components/SplashScreen';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import config from '../../tamagui.config';
 
-// Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+ExpoSplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function AppLayout() {
+  const [isAppReady, setIsAppReady] = useState(false);
   const [loaded] = useFonts({
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf')
@@ -18,22 +20,25 @@ export default function AppLayout() {
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      ExpoSplashScreen.hideAsync();
+      setTimeout(() => {
+        setIsAppReady(true);
+      }, 3000);
     }
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <TamaguiProvider config={config}>
-      <Stack>
-        <Stack.Screen
-          name="(tabs)"
-          options={{ headerShown: false }}
-        />
-      </Stack>
+      {isAppReady ? (
+        <Stack>
+          <Stack.Screen
+            name="(tabs)"
+            options={{ headerShown: false }}
+          />
+        </Stack>
+      ) : (
+        <SplashScreen />
+      )}
       <StatusBar style="auto" />
     </TamaguiProvider>
   );

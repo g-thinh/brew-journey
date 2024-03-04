@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { View, Text } from 'tamagui';
-
+import * as Updates from 'expo-updates';
 import { TouchableOpacity } from 'react-native';
 
 export default function HomeScreen() {
@@ -26,6 +26,7 @@ export default function HomeScreen() {
           asChild
         >
           <TouchableOpacity
+            onPress={Updates.reloadAsync}
             activeOpacity={0.5}
             style={{
               backgroundColor: 'black',
@@ -38,7 +39,7 @@ export default function HomeScreen() {
               fontSize={16}
               fontWeight="500"
             >
-              Get Started
+              Reload
             </Text>
           </TouchableOpacity>
         </Link>
