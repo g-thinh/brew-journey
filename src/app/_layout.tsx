@@ -5,13 +5,20 @@ import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import SplashScreen from '../components/SplashScreen';
+import {
+  ThemeProvider,
+  DarkTheme,
+  DefaultTheme
+} from '@react-navigation/native';
 
 import { useEffect, useState } from 'react';
 import config from '../../tamagui.config';
+import { useColorScheme } from 'react-native';
 
 ExpoSplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function AppLayout() {
+  const currentTheme = useColorScheme();
   const [isAppReady, setIsAppReady] = useState(false);
   const [loaded] = useFonts({
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
@@ -29,17 +36,19 @@ export default function AppLayout() {
 
   return (
     <TamaguiProvider config={config}>
-      {isAppReady ? (
-        <Stack>
-          <Stack.Screen
-            name="(tabs)"
-            options={{ headerShown: false }}
-          />
-        </Stack>
-      ) : (
-        <SplashScreen />
-      )}
-      <StatusBar style="auto" />
+      <ThemeProvider value={currentTheme === 'dark' ? DarkTheme : DefaultTheme}>
+        {isAppReady ? (
+          <Stack>
+            <Stack.Screen
+              name="(tabs)"
+              options={{ headerShown: false }}
+            />
+          </Stack>
+        ) : (
+          <SplashScreen />
+        )}
+        <StatusBar style="auto" />
+      </ThemeProvider>
     </TamaguiProvider>
   );
 }

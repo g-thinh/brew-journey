@@ -1,28 +1,27 @@
 import LottieView from 'lottie-react-native';
 import { useEffect, useRef } from 'react';
-import { View, Text } from 'tamagui';
-import splashJson from '../assets/splash.json';
 import { Animated } from 'react-native';
+import splashJson from '../assets/splash.json';
+import Box from './Box';
 
 export default function SplashScreen() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
-
   const animationRef = useRef(null);
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1500, // Adjust the duration as per your preference
+      duration: 1500,
       useNativeDriver: true
     }).start();
   }, [fadeAnim]);
 
   return (
-    <View
+    <Box
       flex={1}
-      alignItems="center"
-      justifyContent="center"
-      backgroundColor="#ffffff"
+      ai="center"
+      jc="center"
+      style={{ backgroundColor: '#fff' }}
     >
       <LottieView
         autoPlay
@@ -50,6 +49,6 @@ export default function SplashScreen() {
       >
         Brew Journey
       </Animated.Text>
-    </View>
+    </Box>
   );
 }

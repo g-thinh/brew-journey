@@ -1,0 +1,129 @@
+import { Theme } from './theme';
+import { StyleSheet, ViewStyle } from 'react-native';
+
+type Margins = {
+  mt?: ViewStyle['marginTop'];
+  mb?: ViewStyle['marginBottom'];
+  mr?: ViewStyle['marginRight'];
+  ml?: ViewStyle['marginLeft'];
+  my?: ViewStyle['margin'];
+  mx?: ViewStyle['margin'];
+  m?: ViewStyle['margin'];
+};
+
+type Paddings = {
+  pt?: ViewStyle['paddingTop'];
+  pb?: ViewStyle['paddingBottom'];
+  pr?: ViewStyle['paddingRight'];
+  pl?: ViewStyle['paddingLeft'];
+  py?: ViewStyle['padding'];
+  px?: ViewStyle['padding'];
+  p?: ViewStyle['padding'];
+};
+
+type Colors = {
+  color?: keyof Theme['colors'];
+  bg?: keyof Theme['colors'];
+};
+
+type FlexLayout = {
+  fd?: ViewStyle['flexDirection'];
+  ai?: ViewStyle['alignItems'];
+  jc?: ViewStyle['justifyContent'];
+  flex?: ViewStyle['flex'];
+};
+
+export type UtilityStyles = Margins & Paddings & FlexLayout & Colors;
+
+/**
+ * Utility function that creates shorthand styles derived from a Text, View or Image props
+ * @param props
+ * @returns
+ */
+export function createUtilStyles<T extends UtilityStyles>(
+  props: T,
+  theme: Theme
+) {
+  const {
+    mt,
+    mb,
+    mr,
+    ml,
+    pt,
+    pb,
+    pr,
+    pl,
+    fd,
+    color,
+    bg,
+    my,
+    mx,
+    m,
+    p,
+    px,
+    py,
+    jc,
+    ai,
+    flex
+  } = props;
+
+  const utilities = StyleSheet.create({
+    margins: {
+      marginTop: mt,
+      marginBottom: mb,
+      marginLeft: ml,
+      marginRight: mr,
+      ...(my && {
+        marginTop: my,
+        marginBottom: my
+      }),
+      ...(mx && {
+        marginLeft: mx,
+        marginRight: mx
+      }),
+      ...(m && {
+        marginTop: m,
+        marginBottom: m,
+        marginLeft: m,
+        marginRight: m
+      })
+    },
+    paddings: {
+      paddingTop: pt,
+      paddingBottom: pb,
+      paddingLeft: pl,
+      paddingRight: pr,
+      ...(py && {
+        marginTop: py,
+        marginBottom: py
+      }),
+      ...(px && {
+        marginLeft: px,
+        marginRight: px
+      }),
+      ...(p && {
+        marginTop: p,
+        marginBottom: p,
+        marginLeft: p,
+        marginRight: p
+      })
+    },
+    flexLayout: {
+      flexDirection: fd,
+      justifyContent: jc,
+      alignItems: ai,
+      flex
+    },
+    colors: {
+      color: (color && theme.colors[color]) ?? color,
+      backgroundColor: (bg && theme.colors[bg]) ?? bg
+    }
+  });
+
+  return StyleSheet.flatten({
+    ...utilities.margins,
+    ...utilities.paddings,
+    ...utilities.colors,
+    ...utilities.flexLayout
+  });
+}

@@ -1,26 +1,35 @@
 import { Link } from 'expo-router';
 import { View, Text } from 'tamagui';
 import * as Updates from 'expo-updates';
-import { TouchableOpacity } from 'react-native';
+import { Appearance, TouchableOpacity, useColorScheme } from 'react-native';
+import Button from '@/components/Button';
+import P from '@/components/P';
+import Box from '@/components/Box';
+import Heading from '@/components/Heading';
 
 export default function HomeScreen() {
+  const currentTheme = useColorScheme();
   return (
-    <View
+    <Box
       flex={1}
-      alignItems="center"
-      justifyContent="center"
-      backgroundColor="orange"
+      ai="center"
+      jc="center"
+      bg="background"
     >
       <View
         gap={16}
         alignItems="center"
       >
-        <Text
-          fontSize={32}
-          fontWeight="500"
+        <Heading>Ready to brew?</Heading>
+        <Button
+          onPress={() =>
+            Appearance.setColorScheme(
+              currentTheme === 'dark' ? 'light' : 'dark'
+            )
+          }
         >
-          Ready to brew?
-        </Text>
+          <P>{currentTheme}</P>
+        </Button>
         <Link
           href="/"
           asChild
@@ -44,6 +53,6 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </Link>
       </View>
-    </View>
+    </Box>
   );
 }
