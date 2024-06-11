@@ -25,7 +25,7 @@ export default function AppLayout() {
       ExpoSplashScreen.hideAsync();
       setTimeout(() => {
         setIsAppReady(true);
-      }, 3000);
+      }, 4000);
     }
   }, [loaded]);
 

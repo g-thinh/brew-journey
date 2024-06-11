@@ -22,7 +22,7 @@ type Paddings = {
 };
 
 type Colors = {
-  color?: keyof Theme['colors'];
+  c?: keyof Theme['colors'];
   bg?: keyof Theme['colors'];
 };
 
@@ -61,7 +61,7 @@ export function createUtilStyles<T extends UtilityStyles>(
     pr,
     pl,
     fd,
-    color,
+    c,
     bg,
     my,
     mx,
@@ -127,7 +127,7 @@ export function createUtilStyles<T extends UtilityStyles>(
       gap: g
     },
     colors: {
-      color: (color && theme.colors[color]) ?? color,
+      color: (c && theme.colors[c]) ?? c,
       backgroundColor: (bg && theme.colors[bg]) ?? bg
     },
     text: {

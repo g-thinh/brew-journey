@@ -19,8 +19,21 @@ export default function HomeScreen() {
         ai="center"
         g={12}
       >
-        <Heading ta="center">{t('home:title')}</Heading>
-        <P>{t('home:choose')}</P>
+        <Heading
+          aria-level={1}
+          c="coffee-11"
+          fs={28}
+          fw={600}
+          ta="center"
+        >
+          {t('home:title')}
+        </Heading>
+        <P
+          c="gray-12"
+          fs={18}
+        >
+          {t('home:choose')}
+        </P>
       </Box>
       <Box
         ai="center"
@@ -39,7 +52,12 @@ export default function HomeScreen() {
             })
           })}
         >
-          <P style={styles.text}>{t('home:start')}</P>
+          <P
+            c="gray-12"
+            style={styles.text}
+          >
+            {t('home:start')}
+          </P>
         </Pressable>
         <Pressable
           style={({ pressed }) => ({
@@ -52,7 +70,12 @@ export default function HomeScreen() {
             })
           })}
         >
-          <P style={styles.text}>{t('home:how')}</P>
+          <P
+            c="gray-12"
+            style={styles.text}
+          >
+            {t('home:how')}
+          </P>
         </Pressable>
       </Box>
     </Box>

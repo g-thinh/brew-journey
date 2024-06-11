@@ -3,6 +3,8 @@ import { Tabs } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Feather from '@expo/vector-icons/Feather';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import { Appearance, Pressable, useColorScheme } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
@@ -51,7 +53,10 @@ export default function TabsLayout() {
               gap: 4
             }}
           >
-            <P style={{ fontWeight: 500, textTransform: 'uppercase' }}>
+            <P
+              c="gray-12"
+              style={{ fontWeight: 500, textTransform: 'uppercase' }}
+            >
               {i18n.language}
             </P>
             <Feather
@@ -97,6 +102,27 @@ export default function TabsLayout() {
             ) : (
               <Feather
                 name="book"
+                size={24}
+                color={theme.colors['gray-9']}
+              />
+            )
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: t('tab:settings'),
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Ionicons
+                name="options"
+                size={24}
+                fill="red"
+                color={theme.colors['coffee-9']}
+              />
+            ) : (
+              <Ionicons
+                name="options-outline"
                 size={24}
                 color={theme.colors['gray-9']}
               />

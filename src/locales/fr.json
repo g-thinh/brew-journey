@@ -1,7 +1,8 @@
 {
     "tab": {
         "brew": "Brasser",
-        "discover": "Découvrir"
+        "discover": "Découvrir",
+        "settings": "Réglages"
     },
     "home": {
         "title": "Qu'est-ce que vous aimerais faire?",

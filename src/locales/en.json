@@ -1,7 +1,8 @@
 {
     "tab": {
         "brew": "Brew",
-        "discover": "Discover"
+        "discover": "Discover",
+        "settings": "Settings"
     },
     "home": {
         "title": "What would you like to do?",

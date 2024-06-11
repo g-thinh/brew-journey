@@ -1,7 +1,7 @@
 import Box from '@/components/Box';
 import P from '@/components/P';
 
-export default function SettingsScreen() {
+export default function DiscoverScreen() {
   return (
     <Box
       ai="center"
