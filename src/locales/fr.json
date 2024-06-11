@@ -1,0 +1,12 @@
+{
+    "tab": {
+        "brew": "Brasser",
+        "discover": "Découvrir"
+    },
+    "home": {
+        "title": "Qu'est-ce que vous aimerais faire?",
+        "choose": "Veuillez choisir l'une des options suivantes.",
+        "start": "Commencer à brasser ma première tasse",
+        "how": "Apprendre plus sur le café"
+    }
+}

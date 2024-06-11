@@ -1,0 +1,12 @@
+{
+    "tab": {
+        "brew": "Brew",
+        "discover": "Discover"
+    },
+    "home": {
+        "title": "What would you like to do?",
+        "choose": "Please choose one of the following options",
+        "start": "Start brewing my first cup",
+        "how": "Learn more about coffee"
+    }
+}

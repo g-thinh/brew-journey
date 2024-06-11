@@ -23,8 +23,8 @@ export default function P({ children, ...props }: ParagraphProps) {
 const makeStyles = (theme: Theme) =>
   StyleSheet.create({
     base: {
-      color: theme.colors.text,
-      fontSize: theme.fontSizes[2],
+      fontSize: 16,
+      color: theme.colors['gray-12'],
       fontWeight: 400
     }
   });

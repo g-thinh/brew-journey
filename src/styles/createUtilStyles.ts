@@ -1,5 +1,5 @@
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { Theme } from './theme';
-import { StyleSheet, ViewStyle } from 'react-native';
 
 type Margins = {
   mt?: ViewStyle['marginTop'];
@@ -31,9 +31,16 @@ type FlexLayout = {
   ai?: ViewStyle['alignItems'];
   jc?: ViewStyle['justifyContent'];
   flex?: ViewStyle['flex'];
+  g?: ViewStyle['gap'];
 };
 
-export type UtilityStyles = Margins & Paddings & FlexLayout & Colors;
+type Text = {
+  ta?: TextStyle['textAlign'];
+  fs?: TextStyle['fontSize'];
+  fw?: TextStyle['fontWeight'];
+};
+
+export type UtilityStyles = Margins & Paddings & FlexLayout & Colors & Text;
 
 /**
  * Utility function that creates shorthand styles derived from a Text, View or Image props
@@ -64,7 +71,11 @@ export function createUtilStyles<T extends UtilityStyles>(
     py,
     jc,
     ai,
-    flex
+    flex,
+    ta,
+    fs,
+    fw,
+    g
   } = props;
 
   const utilities = StyleSheet.create({
@@ -112,11 +123,17 @@ export function createUtilStyles<T extends UtilityStyles>(
       flexDirection: fd,
       justifyContent: jc,
       alignItems: ai,
-      flex
+      flex,
+      gap: g
     },
     colors: {
       color: (color && theme.colors[color]) ?? color,
       backgroundColor: (bg && theme.colors[bg]) ?? bg
+    },
+    text: {
+      textAlign: ta,
+      fontWeight: fw,
+      fontSize: fs
     }
   });
 
@@ -124,6 +141,7 @@ export function createUtilStyles<T extends UtilityStyles>(
     ...utilities.margins,
     ...utilities.paddings,
     ...utilities.colors,
-    ...utilities.flexLayout
+    ...utilities.flexLayout,
+    ...utilities.text
   });
 }

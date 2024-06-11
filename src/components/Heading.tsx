@@ -24,7 +24,7 @@ export default function Heading({ children, ...props }: HeadingProps) {
 const makeStyles = (theme: Theme) =>
   StyleSheet.create({
     base: {
-      color: theme.colors.primary,
+      color: theme.colors['gray-12'],
       fontSize: theme.fontSizes[5],
       fontWeight: 600
     }

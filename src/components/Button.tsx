@@ -1,17 +1,11 @@
 import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/styles/theme';
 import { UtilityStyles, createUtilStyles } from '@/styles/createUtilStyles';
-import {
-  View,
-  PressableProps,
-  Pressable,
-  ViewStyle,
-  StyleSheet
-} from 'react-native';
+import { PressableProps, Pressable, ViewStyle, StyleSheet } from 'react-native';
 
 type ButtonProps = PressableProps & UtilityStyles;
 
-export default function Button({ children, ...props }: ButtonProps) {
+export default function Button(props: ButtonProps) {
   const theme = useTheme();
   const styles = makeStyles(theme);
   const utils = createUtilStyles(props, theme);
@@ -23,21 +17,28 @@ export default function Button({ children, ...props }: ButtonProps) {
         ...utils,
         ...styles.base,
         ...(pressed && {
-          backgroundColor: 'blue'
+          backgroundColor: theme.colors['gray-3'],
+          borderColor: theme.colors['gray-3'],
+          transform: [{ translateY: 3 }]
         }),
         ...(props.style as ViewStyle)
       })}
-    >
-      {children}
-    </Pressable>
+    />
   );
 }
 
 const makeStyles = (theme: Theme) =>
   StyleSheet.create({
     base: {
-      backgroundColor: theme.colors.muted,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minWidth: 80,
+      backgroundColor: theme.colors['gray-4'],
       padding: theme.space[2],
-      borderRadius: 4
+      borderRadius: 4,
+      borderBottomWidth: 3,
+      borderRightWidth: 3,
+      borderColor: theme.colors['gray-5']
     }
   });
