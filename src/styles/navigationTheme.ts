@@ -4,7 +4,7 @@ import { colors } from './colors';
 export const DarkTheme: Theme = {
   dark: true,
   colors: {
-    primary: colors.dark['yellow-5'],
+    primary: colors.dark['coffee-9'],
     background: colors.dark['gray-1'],
     card: colors.dark['gray-2'],
     text: colors.dark['gray-12'],
@@ -16,7 +16,7 @@ export const DarkTheme: Theme = {
 export const LightTheme: Theme = {
   dark: false,
   colors: {
-    primary: colors.light['yellow-5'],
+    primary: colors.light['coffee-9'],
     background: colors.light['gray-1'],
     card: colors.light['gray-2'],
     text: colors.light['gray-12'],

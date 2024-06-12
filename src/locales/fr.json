@@ -1,4 +1,7 @@
 {
+    "screen": {
+        "home": "Brew Journey"
+    },
     "tab": {
         "brew": "Brasser",
         "discover": "Découvrir",
@@ -9,5 +12,21 @@
         "choose": "Veuillez choisir l'une des options suivantes.",
         "start": "Commencer à brasser ma première tasse",
         "how": "Apprendre plus sur le café"
+    },
+    "brew": {
+        "title": "Préparez votre infusion",
+        "instruction": "Entrez le rapport grains de café/eau souhaité.",
+        "learn": "En savoir plus sur les ratios de brassage",
+        "continue": "Continuer",
+        "choices": {
+            "light": "Léger",
+            "light_description": "Idéal pour les grains de café torréfiés légers, d'origine unique ou Arabica.",
+            "balanced": "Balancé",
+            "balanced_description": "Parfait pour les torréfactions moyennes ou les grains de café mélangés.",
+            "strong": "Fort",
+            "strong_description": "Pour un profil de saveur intense et riche en utilisant des grains de café torréfiés foncés.",
+            "custom": "Infusion personnalisée",
+            "custom_description": "Intéressé à expérimenter? Essayez un rapport différent."
+        }
     }
 }

@@ -36,8 +36,20 @@ type FlexLayout = {
 
 type Text = {
   ta?: TextStyle['textAlign'];
+  lh?: TextStyle['lineHeight'];
   fs?: TextStyle['fontSize'];
   fw?: TextStyle['fontWeight'];
+  ff?:
+    | 'Lato_100Thin'
+    | 'Lato_100Thin_Italic'
+    | 'Lato_300Light'
+    | 'Lato_300Light_Italic'
+    | 'Lato_400Regular'
+    | 'Lato_400Regular_Italic'
+    | 'Lato_700Bold'
+    | 'Lato_700Bold_Italic'
+    | 'Lato_900Black'
+    | 'Lato_900Black_Italic';
 };
 
 export type UtilityStyles = Margins & Paddings & FlexLayout & Colors & Text;
@@ -75,7 +87,9 @@ export function createUtilStyles<T extends UtilityStyles>(
     ta,
     fs,
     fw,
-    g
+    g,
+    ff,
+    lh
   } = props;
 
   const utilities = StyleSheet.create({
@@ -131,6 +145,8 @@ export function createUtilStyles<T extends UtilityStyles>(
       backgroundColor: (bg && theme.colors[bg]) ?? bg
     },
     text: {
+      lineHeight: lh ? fs + lh * fs : fs,
+      fontFamily: ff,
       textAlign: ta,
       fontWeight: fw,
       fontSize: fs

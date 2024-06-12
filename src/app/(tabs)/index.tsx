@@ -2,6 +2,7 @@ import Box from '@/components/Box';
 import Heading from '@/components/Heading';
 import P from '@/components/P';
 import { useTheme } from '@/hooks/useTheme';
+import { Link } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
 
@@ -25,11 +26,13 @@ export default function HomeScreen() {
           fs={28}
           fw={600}
           ta="center"
+          ff="Lato_700Bold"
         >
           {t('home:title')}
         </Heading>
         <P
           c="gray-12"
+          ff="Lato_400Regular"
           fs={18}
         >
           {t('home:choose')}
@@ -40,25 +43,33 @@ export default function HomeScreen() {
         jc="center"
         g={16}
       >
-        <Pressable
-          onPress={() => {}}
-          style={({ pressed }) => ({
+        <Link
+          asChild
+          href="/brew"
+          style={{
             ...styles.button,
-            backgroundColor: theme.colors['coffee-4'],
-            ...(pressed && {
-              backgroundColor: theme.colors['coffee-3'],
-              borderColor: theme.colors['coffee-3'],
-              transform: [{ translateY: 3 }]
-            })
-          })}
+            backgroundColor: theme.colors['coffee-4']
+          }}
         >
-          <P
-            c="gray-12"
-            style={styles.text}
+          <Pressable
+            style={({ pressed }) => ({
+              ...styles.button,
+              backgroundColor: theme.colors['coffee-4'],
+              ...(pressed && {
+                backgroundColor: theme.colors['coffee-3'],
+                borderColor: theme.colors['coffee-3'],
+                transform: [{ translateY: 3 }]
+              })
+            })}
           >
-            {t('home:start')}
-          </P>
-        </Pressable>
+            <P
+              c="gray-12"
+              style={styles.text}
+            >
+              {t('home:start')}
+            </P>
+          </Pressable>
+        </Link>
         <Pressable
           style={({ pressed }) => ({
             ...styles.button,

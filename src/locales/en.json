@@ -1,4 +1,7 @@
 {
+    "screen": {
+        "home": "Brew Journey"
+    },
     "tab": {
         "brew": "Brew",
         "discover": "Discover",
@@ -9,5 +12,21 @@
         "choose": "Please choose one of the following options",
         "start": "Start brewing my first cup",
         "how": "Learn more about coffee"
+    },
+    "brew": {
+        "title": "Prepare your Brew",
+        "instruction": "Enter your desired coffee bean to water ratio.",
+        "learn": "Learn more about brewing ratios",
+        "continue": "Continue",
+        "choices": {
+            "light": "Light",
+            "light_description": "Ideal for light roast, single origin or Arabica coffee beans.",
+            "balanced": "Balanced",
+            "balanced_description": "Perfect for medium roasts or blended coffee beans.",
+            "strong": "Strong",
+            "strong_description": "For an intense and rich flavour profile using dark roast coffee beans.",
+            "custom": "Custom",
+            "custom_description": "Interested in experimenting? Try a different ratio."
+        }
     }
 }
