@@ -27,6 +27,21 @@
             "strong_description": "Pour un profil de saveur intense et riche en utilisant des grains de café torréfiés foncés.",
             "custom": "Infusion personnalisée",
             "custom_description": "Intéressé à expérimenter? Essayez un rapport différent."
+        },
+        "choose_method": "Choisissez votre méthode",
+        "cards": {
+            "aeropress": {
+                "name": "L'Aéropress",
+                "description": "L'AeroPress est une cafetière compacte et polyvalente qui utilise la pression de l'air pour préparer un café onctueux et riche en seulement 1 à 2 minutes. Parfaite pour expérimenter les saveurs et facile à nettoyer."
+            },
+            "frenchpress": {
+                "name": "La Presse Française",
+                "description": "Cette méthode prépare un café audacieux et corsé en trempant le marc dans de l'eau chaude et en le pressant avec un filtre métallique. C'est un favori classique pour sa saveur riche et robuste."
+            },
+            "pourover": {
+                "name": "Le Pour Over",
+                "description": "La méthode pour-over est une technique classique de préparation du café qui consiste à verser de l'eau chaude sur le marc de café dans un filtre, permettant ainsi à l'eau de s'égoutter dans une carafe ou une tasse. Cette méthode met l'accent sur le contrôle des variables de préparation, ce qui entraîne une tasse de café propre et lumineuse aux saveurs nuancées. Les appareils à verser populaires incluent le Hario V60 et le Chemex."
+            }
         }
     }
 }

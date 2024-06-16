@@ -27,6 +27,21 @@
             "strong_description": "For an intense and rich flavour profile using dark roast coffee beans.",
             "custom": "Custom",
             "custom_description": "Interested in experimenting? Try a different ratio."
+        },
+        "choose_method": "Choose your method",
+        "cards": {
+            "aeropress": {
+                "name": "The Aeropress",
+                "description": "The AeroPress is a compact, versatile coffee maker that uses air pressure to brew smooth, rich coffee in just 1-2 minutes. Perfect for experimenting with flavors and easy to clean."
+            },
+            "frenchpress": {
+                "name": "The French Press",
+                "description": "The French Press brews bold, full-bodied coffee by steeping grounds in hot water and pressing them with a metal filter. It's a classic favorite for its rich, robust flavor."
+            },
+            "pourover": {
+                "name": "The Pour Over",
+                "description": "The pour-over method is a classic coffee brewing technique that involves pouring hot water over coffee grounds in a filter, allowing the water to drip through into a carafe or mug. This method emphasizes control over brewing variables, resulting in a clean, bright cup of coffee with nuanced flavors. Popular pour-over devices include the Hario V60 and Chemex."
+            }
         }
     }
 }
