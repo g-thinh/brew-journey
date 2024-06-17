@@ -54,7 +54,6 @@ export default function HomeScreen() {
           <Pressable
             style={({ pressed }) => ({
               ...styles.button,
-              backgroundColor: theme.colors['coffee-4'],
               ...(pressed && {
                 backgroundColor: theme.colors['coffee-3'],
                 borderColor: theme.colors['coffee-3'],
@@ -70,24 +69,33 @@ export default function HomeScreen() {
             </P>
           </Pressable>
         </Link>
-        <Pressable
-          style={({ pressed }) => ({
+        <Link
+          asChild
+          href="/discover"
+          style={{
             ...styles.button,
-            backgroundColor: theme.colors['gray-4'],
-            ...(pressed && {
-              backgroundColor: theme.colors['gray-3'],
-              borderColor: theme.colors['gray-3'],
-              transform: [{ translateY: 3 }]
-            })
-          })}
+            backgroundColor: theme.colors['gray-4']
+          }}
         >
-          <P
-            c="gray-12"
-            style={styles.text}
+          <Pressable
+            style={({ pressed }) => ({
+              ...styles.button,
+
+              ...(pressed && {
+                backgroundColor: theme.colors['gray-3'],
+                borderColor: theme.colors['gray-3'],
+                transform: [{ translateY: 3 }]
+              })
+            })}
           >
-            {t('home:how')}
-          </P>
-        </Pressable>
+            <P
+              c="gray-12"
+              style={styles.text}
+            >
+              {t('home:how')}
+            </P>
+          </Pressable>
+        </Link>
       </Box>
     </Box>
   );

@@ -7,7 +7,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { Link } from 'expo-router';
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlatList, Pressable } from 'react-native';
+import { Dimensions, FlatList, Pressable } from 'react-native';
 
 export default function BrewScreen() {
   const theme = useTheme();
@@ -111,6 +111,10 @@ export default function BrewScreen() {
       <FlatList
         ref={flatListRef}
         horizontal
+        snapToAlignment="start"
+        decelerationRate="fast"
+        snapToInterval={Dimensions.get('screen').width}
+        showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={({ changed }) =>
           setCurrentSlide(changed[0].index)
         }
